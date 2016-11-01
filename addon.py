@@ -168,8 +168,10 @@ def Detail():
         fo.write(str(node)+'\n')
     fo.close
 
-    listitem = xbmcgui.ListItem('[COLOR FFFF00FF]Current Select 当前选择: [/COLOR][COLOR FFFFFF00]('+searchResultName[whichResultInt]+') [/COLOR][COLOR FF00FFFF]Total 共计：'+str(len(detailResult))+'Episodes 集[/COLOR]【[COLOR FF00FF00]'+'Click here for new search 点此输入新搜索内容'+'[/COLOR]】')
+    listitem = xbmcgui.ListItem('[COLOR FFFF00FF]Current Select 当前选择: [/COLOR][COLOR FFFFFF00]('+searchResultName[whichResultInt]+') [/COLOR]【[COLOR FF00FF00]'+'Click here for new search 点此输入新搜索内容'+'[/COLOR]】')
     url=sys.argv[0]+sys.argv[2]
+    xbmcplugin.addDirectoryItem(handle, url, listitem, True)
+    listitem = xbmcgui.ListItem('[COLOR FF00FFFF]Total 共计：'+str(len(detailResult))+'Episodes 集[/COLOR]【[COLOR FF00FF00]'+'Click here for new search 点此输入新搜索内容'+'[/COLOR]】')
     xbmcplugin.addDirectoryItem(handle, url, listitem, True)
     for i in range(len(detailResult)):
         listitem = xbmcgui.ListItem('第'+str(i+1)+'集 Episode '+str(i+1))
