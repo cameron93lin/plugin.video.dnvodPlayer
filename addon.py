@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # addon.py
 # dnvodPlayer
+# by Cameron
 
 import xbmcplugin, xbmcgui,urlparse,xbmcaddon
 import urllib
@@ -86,7 +87,7 @@ playUrl=''
 
 #main menu
 def index():
-    listitem=xbmcgui.ListItem("搜索..")
+    listitem=xbmcgui.ListItem("Search 搜索..")
     isFolder=True
     url = plugin_url + '?act=Search&name=search'
     xbmcplugin.addDirectoryItem(handle,url,listitem,isFolder)
@@ -95,7 +96,7 @@ def index():
 
 #Search menu
 def Search():
-    kb = Keyboard('',u'请输入想要观看的电影或电视剧名称')
+    kb = Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
     kb.doModal()
     if not kb.isConfirmed(): return
     sstr = kb.getText()
@@ -125,7 +126,7 @@ def Search():
         fo.write(str(node)+'\n')
     fo.close
 
-    listitem = xbmcgui.ListItem('[COLOR FFFF00FF]当前搜索: [/COLOR][COLOR FFFFFF00]('+sstr+') [/COLOR][COLOR FF00FFFF]共计：'+str(len(searchResult))+'[/COLOR]【[COLOR FF00FF00]'+'点此输入新搜索内容'+'[/COLOR]】')
+    listitem = xbmcgui.ListItem('[COLOR FFFF00FF]Search result 当前搜索: [/COLOR][COLOR FFFFFF00]('+sstr+') [/COLOR][COLOR FF00FFFF] Total 共计：'+str(len(searchResult))+'[/COLOR]【[COLOR FF00FF00]'+'Click here for new search 点此输入新搜索内容'+'[/COLOR]】')
     url=sys.argv[0]+'?act=Search&name'+inputMovieName
     xbmcplugin.addDirectoryItem(handle, url, listitem, True)
     for i in range(len(searchResultName)):
@@ -164,11 +165,11 @@ def Detail():
         fo.write(str(node)+'\n')
     fo.close
 
-    listitem = xbmcgui.ListItem('[COLOR FFFF00FF]当前选择: [/COLOR][COLOR FFFFFF00]('+searchResultName[whichResultInt]+') [/COLOR][COLOR FF00FFFF]共计：'+str(len(detailResult))+'集[/COLOR]【[COLOR FF00FF00]'+'点此输入新搜索内容'+'[/COLOR]】')
+    listitem = xbmcgui.ListItem('[COLOR FFFF00FF]Current Select 当前选择: [/COLOR][COLOR FFFFFF00]('+searchResultName[whichResultInt]+') [/COLOR][COLOR FF00FFFF]Total 共计：'+str(len(detailResult))+'Episodes 集[/COLOR]【[COLOR FF00FF00]'+'Click here for new search 点此输入新搜索内容'+'[/COLOR]】')
     url=sys.argv[0]+sys.argv[2]
     xbmcplugin.addDirectoryItem(handle, url, listitem, True)
     for i in range(len(detailResult)):
-        listitem = xbmcgui.ListItem('第'+str(i+1)+'集')
+        listitem = xbmcgui.ListItem('第'+str(i+1)+'集 Episode '+str(i+1))
         url=sys.argv[0]+'?act=play&id='+params['id']+'&ep='+str(i+1)
         xbmcplugin.addDirectoryItem(handle, url, listitem, True)
     xbmcplugin.endOfDirectory(handle)
@@ -215,7 +216,7 @@ def Episode():
 
     playlist = xbmc.PlayList(1)
     playlist.clear()
-    listitem=xbmcgui.ListItem(u'播放')
+    listitem=xbmcgui.ListItem(u'Play 播放')
     listitem.setInfo(type='video', infoLabels={"Title": searchResultName[int(params['id'])-1]+' 第'+params['ep']+'集'})
     playlist.add(real_url, listitem=listitem)
     xbmc.Player().play(playlist)
