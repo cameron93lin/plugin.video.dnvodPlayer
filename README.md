@@ -4,6 +4,10 @@ This plugin is for people who want to watch dnvod videos on Kodi(Xbmc). Only wor
 
 这个插件可以让你在Kodi系统（Xbmc）中观看多瑙影院（dnvod）的电影及电视剧。只能在海外地区访问（多瑙网站被墙）。主要为中文语言使用者服务。
 
+# Version 版本
+
+v1.0.0
+
 # How To Use 如何使用
 
 ## Require 要求
