@@ -96,7 +96,10 @@ def index():
 
 #Search menu
 def Search():
-    kb = Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
+    try:
+        kb = ChineseKeyboard.Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
+    except:
+        kb = Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
     kb.doModal()
     if not kb.isConfirmed(): return
     sstr = kb.getText()
