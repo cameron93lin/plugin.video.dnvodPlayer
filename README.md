@@ -20,7 +20,7 @@ Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/mas
 
 ## Install plugin 安装插件
 
-To install the plugin, you need to download the latest plugin zip file. And then:
+To install the plugin, you need to download the latest plugin zip file plugin.video.dnvodPlayer-v1.0.0.zip[https://github.com/cameron93lin/plugin.video.dnvodPlayer/blob/master/plugin.video.dnvodPlayer-v1.0.0.zip]. And then:
 * Launch XBMC
 * Navigate to System | Settings | Add-ons
 * Select Install from zip file
