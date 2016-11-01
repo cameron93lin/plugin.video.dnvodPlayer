@@ -15,8 +15,8 @@ v1.0.0
 Xbmc的Requests模块
 Xbmc requests module: https://github.com/beenje/script.module.requests
 
-（中文输入必须，英文输入可选）Chinese keyboard模块
-(Require for Chinese input. Optional for English input) Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/master/script.module.keyboard.chinese
+Chinese keyboard模块
+Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/master/script.module.keyboard.chinese
 
 ## Install plugin 安装插件
 
