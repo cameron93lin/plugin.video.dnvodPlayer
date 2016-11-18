@@ -6,17 +6,22 @@ This plugin is for people who want to watch dnvod videos on Kodi(Xbmc). Only wor
 
 # Version 版本
 
-v1.0.0
+v1.0.1
 
 # How To Use 如何使用
 
 ## Require 要求
 
-Xbmc的Requests模块
-Xbmc requests module: https://github.com/beenje/script.module.requests
+XBMC version 16.1 Jarvis or higher
+XBMC 版本16.1或以上
 
-Chinese keyboard模块
-Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/master/script.module.keyboard.chinese
+~~Xbmc的Requests模块~~  16.1版本以上已自带
+~~Xbmc requests module: https://github.com/beenje/script.module.requests~~ Build in module in version 16.1
+
+
+
+~~Chinese keyboard模块
+Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/master/script.module.keyboard.chinese~~
 
 ## Install plugin 安装插件
 
