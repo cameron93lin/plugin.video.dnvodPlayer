@@ -15,6 +15,8 @@ v1.0.1
 XBMC version 16.1 Jarvis or higher
 XBMC 版本16.1或以上
 
+如需中文输入，请看下文
+
 ~~Xbmc的Requests模块~~  16.1版本以上已自带
 ~~Xbmc requests module: https://github.com/beenje/script.module.requests~~ Build in module in version 16.1
 
@@ -25,7 +27,7 @@ Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/mas
 
 ## Install plugin 安装插件
 
-To install the plugin, you need to download the latest plugin zip file [plugin.video.dnvodPlayer-v1.0.0.zip](https://github.com/cameron93lin/plugin.video.dnvodPlayer/raw/master/plugin.video.dnvodPlayer-v1.0.0.zip). And then:
+To install the plugin, you need to download the latest plugin zip file [plugin.video.dnvodPlayer-v1.0.1.zip](https://github.com/cameron93lin/plugin.video.dnvodPlayer/raw/master/plugin.video.dnvodPlayer-v1.0.1.zip). And then:
 * Launch XBMC
 * Navigate to System | Settings | Add-ons
 * Select Install from zip file
@@ -37,7 +39,7 @@ For proper Chinese text display on xbmc, do the following steps:
 * Navigate to System | Settings | Appearance | skin
 * Change skin-font to "Arial based"
 
-安装插件你需要先下载最新的zip文件 [plugin.video.dnvodPlayer-v1.0.0.zip](https://github.com/cameron93lin/plugin.video.dnvodPlayer/raw/master/plugin.video.dnvodPlayer-v1.0.0.zip)，然后：
+安装插件你需要先下载最新的zip文件 [plugin.video.dnvodPlayer-v1.0.1.zip](https://github.com/cameron93lin/plugin.video.dnvodPlayer/raw/master/plugin.video.dnvodPlayer-v1.0.1.zip)，然后：
 * 打开 Kodi（XBMC）
 * 前往系统 → 设置 → 插件
 * 选择从 zip 文件安装
@@ -49,6 +51,11 @@ For proper Chinese text display on xbmc, do the following steps:
 * 前往Navigate to System → Settings → Appearance → skin
 * 将 skin-font 变为 "Arial based"
 
+按照以下步骤开启中文键盘：
+* 打开 Kodi（XBMC）Launch XBMC
+* 前往系统 → 设置 → 用户界面 → 界面语言 → 键盘布局
+* 添加Chinese BaiduPY即可
+
 # Features 功能
 
 ## Search Movies or TV Shows 搜索电影或电视剧
@@ -56,6 +63,12 @@ For proper Chinese text display on xbmc, do the following steps:
 Search what you like in the plugin. Only support regular movie or TV shows as guest entry.
 
 直接在插件内搜索你想看的电影或电视剧。目前仅支持游客通道的普通电影或电视剧。不支持VIP通道及午夜版的视频
+
+## VIP HD Video VIP高清视频
+
+Some VIP HD Video can be played by this add on, but not all. If it can not be played, then it means website do not have VIP HD Video in this vedio or the url can not be found. Try the normal one in this case.
+
+部分视频可以直接查看VIP高清视频，如无法播放，则没有VIP高清视频或视频地址解析不成功，请选择普通画质。
 
 # Recommand Repository 推荐的插件库
 中文插件库 xbmc-addons-chinese: https://github.com/taxigps/xbmc-addons-chinese
