@@ -9,10 +9,7 @@ import urllib2
 import re
 import requests
 import sys
-try:
-    from ChineseKeyboard import Keyboard
-except:
-    from xbmc import Keyboard
+from xbmc import Keyboard
 
 
 
@@ -96,10 +93,7 @@ def index():
 
 #Search menu
 def Search():
-    try:
-        kb = ChineseKeyboard.Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
-    except:
-        kb = Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
+    kb = Keyboard('',u'Please input Movie or TV Shows name 请输入想要观看的电影或电视剧名称')
     kb.doModal()
     if not kb.isConfirmed(): return
     sstr = kb.getText()
@@ -219,11 +213,38 @@ def Episode():
     num = re.split(pattern,real_url)
     hdurl = num[0]+'hd-'+num[1]+'.mp4'+num[2]
 
+    title=searchResultName[int(params['id'])-1]
+    epnum=params['ep']
+    dialog = xbmcgui.Dialog()
+    funcs = (
+        regularplayer,
+        hdplayer,
+    )
+    call = dialog.select('请选择清晰度', ['普通', '高清（不保证可以播放）'])
+    # dialog.selectreturns
+    #   0 -> escape pressed
+    #   1 -> first item
+    #   2 -> second item
+    if call:
+        # esc is not pressed
+        func = funcs[call - 1]
+        # assign item from funcs to func
+        return func(real_url,hdurl, title, epnum)
+
+def regularplayer(url,hdurl,title,epnum):
     playlist = xbmc.PlayList(1)
     playlist.clear()
     listitem=xbmcgui.ListItem(u'Play 播放')
-    listitem.setInfo(type='video', infoLabels={"Title": searchResultName[int(params['id'])-1]+' 第'+params['ep']+'集'})
-    playlist.add(real_url, listitem=listitem)
+    listitem.setInfo(type='video', infoLabels={"Title": title+' 第'+epnum+'集'})
+    playlist.add(url, listitem=listitem)
+    xbmc.Player().play(playlist)
+
+def hdplayer(url,hdurl,title,epnum):
+    playlist = xbmc.PlayList(1)
+    playlist.clear()
+    listitem=xbmcgui.ListItem(u'Play 播放')
+    listitem.setInfo(type='video', infoLabels={"Title": title+' 第'+epnum+'集'})
+    playlist.add(hdurl, listitem=listitem)
     xbmc.Player().play(playlist)
 
 {
