@@ -13,12 +13,17 @@ v1.0.1
 ## Require 要求
 
 XBMC version 16.1 Jarvis or higher
+
 XBMC 版本16.1或以上
 
 如需中文输入，请看下文
 
-~~Xbmc的Requests模块~~  16.1版本以上已自带
-~~Xbmc requests module: https://github.com/beenje/script.module.requests~~ Build in module in version 16.1
+16.1版本以上已自带  ~~Xbmc的Requests模块~~ 
+
+
+Build in module in version 16.1  ~~Xbmc requests module: https://github.com/beenje/script.module.requests~~ 
+
+
 
 
 
