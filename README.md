@@ -16,7 +16,7 @@ XBMC version 16.1 Jarvis or higher
 
 XBMC 版本16.1或以上
 
-如需中文输入，请看下文
+
 
 16.1版本以上已自带  ~~Xbmc的Requests模块~~ 
 
@@ -25,7 +25,7 @@ Build in module in version 16.1  ~~Xbmc requests module: https://github.com/been
 
 
 
-
+如需中文输入，请看下文
 
 ~~Chinese keyboard模块
 Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/master/script.module.keyboard.chinese~~
