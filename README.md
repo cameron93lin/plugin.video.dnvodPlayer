@@ -25,9 +25,9 @@ Build in module in version 16.1  ~~Xbmc requests module: https://github.com/been
 
 
 
-如需中文输入，请看下文
 
-~~Chinese keyboard模块
+
+如需中文输入，请看下文  ~~Chinese keyboard模块
 Chinese keyboard module: https://github.com/taxigps/xbmc-addons-chinese/tree/master/script.module.keyboard.chinese~~
 
 ## Install plugin 安装插件
