@@ -62,7 +62,7 @@ For proper Chinese text display on xbmc, do the following steps:
 
 Search what you like in the plugin. Only support regular movie or TV shows as guest entry.
 
-直接在插件内搜索你想看的电影或电视剧。目前仅支持游客通道的普通电影或电视剧。不支持VIP通道及午夜版的视频
+直接在插件内搜索你想看的电影或电视剧。目前仅支持游客通道及部分VIP通道的普通电影或电视剧。不支持午夜版的视频
 
 ## VIP HD Video VIP高清视频
 
