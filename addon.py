@@ -7,10 +7,13 @@ import xbmcplugin, xbmcgui,urlparse,xbmcaddon
 import urllib
 import urllib2
 import re
+import cookielib
 import requests
 import sys
 from xbmc import Keyboard
-
+import js2py
+from bs4 import BeautifulSoup
+#from js2py import pyjs
 
 
 
@@ -82,6 +85,7 @@ searchResultName=None
 detailResult=None
 playUrl=''
 
+
 #main menu
 def index():
     listitem=xbmcgui.ListItem("Search 搜索..")
@@ -90,6 +94,8 @@ def index():
     xbmcplugin.addDirectoryItem(handle,url,listitem,isFolder)
     xbmcplugin.endOfDirectory(handle)
     xbmcplugin.endOfDirectory(handle)
+    
+
 
 #Search menu
 def Search():
@@ -99,9 +105,55 @@ def Search():
     sstr = kb.getText()
     if not sstr: return
     inputMovieName=urllib.quote_plus(sstr)
+    
+    filename = 'cookie.txt'
+    cookie = cookielib.MozillaCookieJar(filename)
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
+    try:
+        urlSearch = 'http://www.dnvod.eu/Movie/Search.aspx?tags=a'
+        req = urllib2.Request(urlSearch, headers=headers)
+        searchResponse = opener.open(req)
+        cookie.save(ignore_discard=True, ignore_expires=True)
+    except urllib2.HTTPError as e:
+        error_message=e.read()
+    #	print error_message
+        detailReg = r'f\, (.*)={\"(.*)\":(.*)\};'
+        detailPattern = re.compile(detailReg)
+        detailResult = detailPattern.findall(error_message)
+        first=detailResult[0][0]+"={\""+detailResult[0][1]+"\":"+detailResult[0][2]+"};"
+        varname1=detailResult[0][0]
+        varname2=detailResult[0][1]
+        detailReg = r'challenge\-form\'\)\;\s*(.*)a.value = (.*)'
+        detailPattern = re.compile(detailReg)
+        detailResult = detailPattern.findall(error_message)
+        second=detailResult[0][0]+"s = parseInt("+varname1+"."+varname2+", 10) + 12; "
+        jscode="var s,"+first+second
+        result=js2py.eval_js(jscode)
+        soup = BeautifulSoup(error_message,"html.parser")
+        fparam=soup.find_all('input')[0]['value']
+        sparam=soup.find_all('input')[1]['value']
+        searchData= urllib.urlencode({
+            'jschl_vc': fparam,
+            'pass': sparam,
+            'jschl_answer': result
+            })
+        searchUrl = 'http://www.dnvod.eu/cdn-cgi/l/chk_jschl?'+'jschl_vc='+str(fparam)+'&pass='+str(sparam)+'&jschl_answer='+str(result)
+        try:
+            print searchUrl
+            headers['Referer']='http://www.dnvod.eu/Movie/Search.aspx?tags=a'
+            req = urllib2.Request(searchUrl, headers=headers)
+            time.sleep(4)
+            sresult = opener.open(req)
+            cookie.save(ignore_discard=True, ignore_expires=True)
+            print sresult.read()
+        except urllib2.HTTPError as e:
+            print e.code
+            print e.read()
+    
+    headers['Referer']='http://www.dnvod.eu/'
     urlSearch = 'http://www.dnvod.eu/Movie/Search.aspx?tags='+inputMovieName
     searchRequest = urllib2.Request(urlSearch,None,headers)
-    searchResponse = urllib2.urlopen(searchRequest)
+    searchResponse = opener.open(searchRequest)
     searchdataResponse = searchResponse.read()
     searchReg = r'<a href="(.*%3d)">'
     searchPattern = re.compile(searchReg)
