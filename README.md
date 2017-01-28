@@ -6,7 +6,12 @@ This plugin is for people who want to watch dnvod videos on Kodi(Xbmc). Only wor
 
 # Version 版本
 
-v1.0.1
+v1.0.2
+
+# Update 更新
+
+Update search function for the addon. It can sucessful running for the new search page now.
+更新了视频搜索的方法，使得插件可以在新的搜索界面中上运行。
 
 # How To Use 如何使用
 
