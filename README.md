@@ -49,7 +49,7 @@ For proper Chinese text display on xbmc, do the following steps:
 * Navigate to System | Settings | Appearance | skin
 * Change skin-font to "Arial based"
 
-安装插件你需要先下载最新的zip文件 [plugin.video.dnvodPlayer-v1.0.1.zip](https://github.com/cameron93lin/plugin.video.dnvodPlayer/raw/master/plugin.video.dnvodPlayer-v1.0.1.zip)，然后：
+安装插件你需要先下载最新的zip文件 [plugin.video.dnvodPlayer-v1.0.2.zip](https://github.com/cameron93lin/plugin.video.dnvodPlayer/raw/master/plugin.video.dnvodPlayer-v1.0.2.zip)，然后：
 * 打开 Kodi（XBMC）
 * 前往系统 → 设置 → 插件
 * 选择从 zip 文件安装
